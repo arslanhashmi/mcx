@@ -1,0 +1,1062 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MCX NSE CHARTS | JARVIS CHARTS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+
+    <!--All css  are here-->
+
+    <!--Bootstrap css here-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <!--Font-Awsome css here-->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    <!--Owl-carousel css here-->
+    <link rel="stylesheet" href="{% static 'plugins/owl/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl/owl.transitions.css' %}">
+
+    <!--Custon css here-->
+    <link rel="stylesheet" href="{% static '' %}css/custom.css">
+
+    <!--Scroll Animation - aos-master css here-->
+    <link rel="stylesheet" href="{% static 'plugins/aos-master/aos.css' %}"/>
+
+    <!--Responsive css here-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+</head>
+<body>
+<div class="se-pre-con"></div>
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header logoo">
+            <button id="tog-btn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home-section"><img class="img-responsive" src="{% static 'images/logo1.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
+                <li class="gold"><a ><button class="  btn btn-gradient outline-button" style="margin-bottom: 0px;" data-toggle="modal" data-target="#pop-register"><div style="background: #1C589B;transition: all 0.3s;">Register</div></button></a></li>
+            </ul>
+            <ul id="navigation" class="nav navbar-nav navbar-right">
+                <li><a class="active" href="#home-section">Home</a></li>
+                <li><a href="#about-section">About</a></li>
+                <li><a href="#why-us-section">Why Us?</a></li>
+                <li><a href="#how-section">How?</a></li>
+                <li><a href="#offers-section">Offers</a></li>
+                <li><a href="#testimonial-section">Testimonial</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right visible-xs visible-sm">
+                <li class="gold" style="border-top: 1px solid rgba(255,255,255,0.1)"><a  data-toggle="modal" data-target="#pop-register">Register</a></li>
+                <li id="login-button" class="gold" style=" display:none; border-top: 1px solid rgba(255,255,255,0.1)"><a  data-toggle="modal" data-target="#pop-login">Login</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!-- NAVIGATION -->
+
+
+<!-- HEADER -->
+<section id="home-section">
+    <div style="width: 100%; height: 100%;" data-vide-bg="mp4: assets/video/suit.mp4, webm: assets/video/suit.webm, ogv: assets/video/suit.ogv" data-vide-options="loop: loop, muted: true, position: 0% 0%">
+        <div class="gradient50 sectionP60 header-pad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-5 col-xs-12 header-text sectionP60">
+                                <h1 class="rL white">JARVIS CHARTS</h1>
+                                <h3 class="gold-gradient-color">A blend of MT4 and Web based Charting Solution!</h3>
+                                <p class="rL white">What the world is searching for now is right here!!! Keeping our promises to create more opportunities for everyone, MCX Sure Gain has designed an Intelligent Trading System for Indian market, called JARVIS!</p>
+                                <button class="animated bounce btn btn-gradient">Buy Now</button>
+                                </div>
+                            <div class="col-md-6 col-sm-6 hidden-xs pull-right">
+                                <div class="login-div centered">
+                                    <div class="head">
+                                        <h3 class="purple oR m0">LOGIN</h3>
+                                        <p class="light oR">Enter your credentials to login.</p>
+                                    </div>
+                                    <form method="post" id="login-form">
+                                        {% csrf_token %}
+                                        <input placeholder="" type="hidden" name="form-type" value="login-form" required>
+                                        <div class="body">
+                                            <div class="input-box">
+                                                <input placeholder="Email" name="email" type="text" required>
+                                                <span style="position: absolute"><i class="fa fa-user"></i></span>
+                                            </div>
+                                            <div class="input-box">
+                                                <input placeholder="Password" name="password" type="password" required>
+                                                <span style="position: absolute"><i class="fa fa-key"></i></span>
+                                            </div>
+                                             <div class="input-box">
+                                                <span class="errornote" id="error-login" style="font-size: 15px;"></span>
+                                            </div>
+                                        </div>
+                                        <div class="foot">
+                                            <a data-toggle="modal" data-target="#pop-forget" class="forgot pull-left"><small>forgot your password?</small></a>
+                                            <button type="submit" class="animated bounce btn btn-gradient W100 pull-right">Login!</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- HEADER -->
+
+<!-- About -->
+<section id="about-section" class="grey-bg" style="padding-bottom: 60px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="services-div margin-minus" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center br service-hover">
+                        <div class="service" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="service-icon">
+                                <i class="fa fa-puzzle-piece"></i>
+                            </div>
+                            <div class="service-desc">
+                                <h4 class="blue oB">Best charting system</h4>
+                                <p class="light oR">JARVIS trading system is one of the best charting strategy for MT4 Platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center br b0 service-hover">
+                        <div class="service" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="service-icon">
+                                <i class="fa fa-paint-brush"></i>
+                            </div>
+                            <div class="service-desc">
+                                <h4 class="blue oB">Perfectly Designed</h4>
+                                <p class="light oR">User-friendly design to easily understand the trend of market smartly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center br b0 service-hover">
+                        <div class="service" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="service-icon">
+                                <i class="fa fa-hourglass-2"></i>
+                            </div>
+                            <div class="service-desc">
+                                <h4 class="blue oB">Time is Money</h4>
+                                <p class="light oR">Sit relax and see JARVIS munching money for you without even spending your time on PC.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center br service-hover">
+                        <div class="service" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="service-icon">
+                                <i class="fa fa-dollar"></i>
+                            </div>
+                            <div class="service-desc">
+                                <h4 class="blue oB">Pocket Friendly</h4>
+                                <p class="light oR">JARVIS comes at very nominal cost but high accuracy. Believe us, will cost you less than Pizzas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+                    <div id="wwa">
+                        <div class="heading-text" data-aos="fade-up" data-aos-duration="1000">
+                            <span class="gold-gradient-color">WHO WE ARE?</span>
+                        </div>
+                        <p class="light oR" data-aos="fade-up" data-aos-duration="1000">Since our origin in 2010, our vision is to be ‘one company’ that can look after the diverse needs of an investor/trader. MCX Sure Gain is the leader in financial service provider category for every segment, i.e. Equity, Commodity, FOREX, Currency etc. Our every product is unique, profitable and user-friendly.</p>
+                         <br>
+                        <p class="light oR" data-aos="fade-up" data-aos-duration="1000">MCX Sure Gain is fully equipped with their own strategy development skills, hence, JARVIS is our craziest and highly-rated innovation so far! See our video for yourself. </p>						 
+                        <button class="btn btn-gradient outline-button mtb20" data-toggle="modal" data-target="#pop-about" data-aos="zoom-in-up" data-aos-duration="800"><div style="background: #f1f1f1;transition: all 0.3s"><span>Read More About Us</span></div></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About -->
+
+<!-- Why Choose Us -->
+<section id="why-us-section" class="sectionP60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-5 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12">
+                    <div class="responsive rsb"  data-aos="fade-right" data-aos-duration="1000">
+                        <div class="heading-text">
+                            <span class="blue-gradient-color">Why choose JARVIS Charts?</span>
+                        </div>
+                        <p class="light oR">JARVIS is one-stop-shop for all your trading needs. JARVIS has been designed with a complete new strategy, not just any basic strategy such as Moving Average, RSI, MACD etc.</p>
+                        <br>
+                        <p class="light oR">
+                            What is in JARVIS: We used Fibonacci and Price-action with our own 'Secret Sauce' to design this new feature. Our first version has caugth the eye of Crude Oil lovers. This version works amazingly well in Crude and we are on our way to enhance this feature for trading in other options. </p>
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+                    <div class="video-embed pull-right" data-aos="fade-left" data-aos-duration="1000">
+                        
+                        <iframe width="533" height="300" src="https://www.youtube.com/embed/S1D37tLmCj8" frameborder="0" gesture="media" allowfullscreen></iframe>
+                        <!--<iframe src="https://player.vimeo.com/video/202406936?title=0&amp;byline=0&amp;portrait=0&amp;color=FDA10E&amp;autoplay=0" width="100%" height="300" autoplay="0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></iframe>-->
+                    </div>
+                    <div class="quote-div gold-gradient-bg pull-right" data-aos="fade-up" data-aos-duration="1000">
+                        <p class="white oR">VIDEO OF JARVIS TRADING IN MCX CRUDE OIL FUTURE.</p>
+						
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Why Choose Us -->
+
+<!-- How We Work -->
+<section id="how-section" class="sectionP60 grey-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-md-offset-0 col-sm-10 col-xs-12">
+                    <div data-aos="fade-right" data-aos-duration="1000">
+                        <div class="heading-text">
+                            <span class="blue-gradient-color">How we work?</span>
+                        </div>
+                        <p class="light rL" style="font-size: 16px;">We follow 4 basic steps to deliver a product,<br>Following are the 4 basic and compulsary steps we use:</p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 p0 sectionP40">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service2" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="service2-icon">
+                                <i class="gold-gradient-color fa fa-lightbulb-o"></i>
+                            </div>
+                            <div class="service2-desc">
+                                <h4 class="blue oB">Think</h4>
+                                <p class="light oR">First of all we think about the demand of Strategy according to the trader's demand.</p>
+                                <a href="javascript:;" class="gold" data-toggle="modal" data-target="#pop-read-more1">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service2" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="service2-icon">
+                                <i class="gold-gradient-color fa fa-pencil"></i>
+                            </div>
+                            <div class="service2-desc">
+                                <h4 class="blue oB">Create</h4>
+                                <p class="light oR">Secondly we create the Indicator according to the requirment of the demand of strategy.</p>
+                                <a href="javascript:;" class="gold" data-toggle="modal" data-target="#pop-read-more2">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service2" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="service2-icon">
+                                <i class="gold-gradient-color fa fa-money"></i>
+                            </div>
+                            <div class="service2-desc">
+                                <h4 class="blue oB">Sell</h4>
+                                <p class="light oR">Once the strategy is completed and tested, we start selling the indicator in market.</p>
+                                <a href="javascript:;" class="gold" data-toggle="modal" data-target="#pop-read-more3">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="service2" data-aos="zoom-in" data-aos-duration="1000">
+                            <div class="service2-icon">
+                                <i class="gold-gradient-color fa fa-bullhorn"></i>
+                            </div>
+                            <div class="service2-desc">
+                                <h4 class="blue oB">Earn</h4>
+                                <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipisicing elit, Aliquam amet beatae.</p>
+                                <a href="javascript:;" class="gold" data-toggle="modal" data-target="#pop-read-more4">Read more...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- How We Work -->
+
+<!-- Number Counter -->
+<section class="counter-bg">
+    <div class="sectionP40 blue-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-5 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12">
+                        <div class="responsive" data-aos="fade-right" data-aos-duration="1000">
+                            <div class="heading-text">
+                                <span class="gold-gradient-color">Little bit of stats.</span>
+                            </div>
+                            <p class="light2 oL" style="font-size: 16px;">During our entire code set-up journey, JARVIS has gone through a tough testing to setup a remarkable milestone in CRUDE OIL. See the outcome for a "Single Lot" trading: </p>
+                            <button class="btn btn-gradient outline-button mtb20 hidden-sm hidden-xs"  data-aos="zoom-in-up" data-aos-duration="800"><div  style="background: #091D48;transition: all 0.3s">Buy Now</div></button>
+                        </div>
+                    </div>
+                    <div id="counter" class="col-md-5 col-sm-12 col-xs-12 pull-right resPad0">
+                        <div class="col-md-6 col-sm-3 col-xs-6 br bb">
+                            <div class="numbers text-center" data-aos="zoom-in" data-aos-duration="1000">
+                                <span class="numscroller rB gold-gradient-color" data-min='0000' data-max='18' data-delay='1' data-increment='25'>00</span>
+                                <p class="white oR">Months</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-3 col-xs-6 bb">
+                            <div class="numbers text-center" data-aos="zoom-in" data-aos-duration="1000">
+                                <span class="numscroller rB gold-gradient-color" data-min='0000' data-max='200' data-delay='1' data-increment='25'>00</span>
+                                <p class="white oR">Total Trades</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-3 col-xs-6 br">
+                            <div class="numbers text-center" data-aos="zoom-in" data-aos-duration="1000">
+                                <span class="numscroller rB gold-gradient-color" data-min='0000' data-max='3631' data-delay='1' data-increment='25'>00</span>
+                                <p class="white oR">Points Earn</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-3 col-xs-6">
+                            <div class="numbers text-center" data-aos="zoom-in" data-aos-duration="1000">
+                                <span class="numscroller rB gold-gradient-color" data-min='350000' data-max='363000' data-delay='1' data-increment='25'>00</span>
+                                <p class="white oR">Rupees Profit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Number Counter -->
+
+<!-- What Can We Offer -->
+<section id="offers-section" class="hiw-bg">
+    <div class="sectionP60 grey-bg-o">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+                        <div data-aos="fade-up" data-aos-duration="1000">
+                            <div class="heading-text">
+                                <span class="gold-gradient-color">What we can offer?</span>
+                            </div>
+                            <p class="light oR" style="font-size: 16px;">MCX Sure gain offering JARVIS trading system for Web and Desktop based service. Desktop service is based on world's best charting platfrom "MT4".</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12 p0 sectionP40">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div data-aos="fade-up" data-aos-duration="1000">
+                                <img class="img-responsive centered" src="{% static 'images/laptop.png' %} "/>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 col-xs-12 sectionP20 pull-right">
+                            <div class="acordian gradient-accordian" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                                        <div class="acordian-desc res-txt-center">
+                                            <i class="fa fa-heart-o"></i><span class="rM">Easy to Use</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="acordian-body res-txt-center">
+                                            <span class="white rL">We made a simple and user-friendly template for you which makes it Easy to use. It has full details about the trend on the screen itself.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="acordian active gradient-accordian" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                                        <div class="acordian-desc res-txt-center">
+                                            <i class="fa fa-paint-brush"></i><span class="rM">MT4 Based Indicator</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="acordian-body res-txt-center">
+                                            <span class="white rL">We have coded the strategy in MQL language so that it can run in any MT4 platform easily. MT4 is best and highly adopted platform by traders. </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="acordian gradient-accordian" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                                        <div class="acordian-desc res-txt-center">
+                                            <i class="fa fa-rocket"></i><span class="rM">Carzy Fast</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="acordian-body res-txt-center">
+                                            <span class="white rL">As we have coded it from scratch, we have made it very fast and gives quick response on every single change in the trend. You will never face any performance related issue.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="acordian gradient-accordian" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 pull-right">
+                                        <div class="acordian-desc res-txt-center">
+                                            <i class="fa fa-pencil"></i><span class="rM">Easy to Edit</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="acordian-body res-txt-center">
+                                            <span class="white rL">As we have our own stragy building team so we are capable of doing any alteration in case of any demand by the traders. Feel free to contact us if you need any change in design or function.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- What Can We Offer -->
+
+<!-- Our Best Features -->
+<section id="features-section" class="sectionP60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+                    <div data-aos="fade-up" data-aos-duration="1000">
+                        <div class="heading-text">
+                            <span class="gold-gradient-color">Our best features.</span>
+                        </div>
+                        <p class="light oR" style="font-size: 16px;">Lets discuss about the key features of our JARVIS trading system. You may get surpised by the best and perfect features of it.</p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12 p0 sectionP60">
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div class="img" data-aos="fade-right" data-aos-duration="1000">
+                            <img class="img-responsive centered" src='{% static 'images/jts.PNG' %}'/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 pull-right">
+                        <div class="features">
+                            <ul class="ul-style">
+                                <li class="oR light" data-aos="fade-left" data-aos-duration="1000"><p>Best strategy in the world which allow to trade in MCX Comodity market for good gains and specially crude oil trading.</p></li>
+                                <li class="oR light" data-aos="fade-left" data-aos-duration="1000"><p>You can trade arrow to arrow to earn maximum profit per trade. No need to put any stoploss because reverse arrow is there to stop your loss.</p></li>
+                                <li class="oR light" data-aos="fade-left" data-aos-duration="1000"><p>No need to book loss in the intraday, you can carry your position for next day as well because strategy works for position as well.</p></li>
+                                <li class="oR light" data-aos="fade-left" data-aos-duration="1000"><p>Our strategy works in M15 time frame and you all knows that during best trading it is the best time frame to analyse a chart.</p></li> 
+                                <li class="oR light" data-aos="fade-left" data-aos-duration="1000"><p>You can easily earn more than 200 points every month in a single lot of trading. You can simply start with a little amount of 50,000 only.</p></li>
+                                <li class="oR light" data-aos="fade-left" data-aos-duration="1000"><p>No need to spend you whole time infront of PC because we have robot trading feature also available so that you can sit relax and wealthy.</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Our Best Features -->
+
+
+
+<!-- Testimonials -->
+<section id="testimonial-section" class="hiw-bg">
+    <div class="blue-bg sectionP60">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+                        <div  data-aos="fade-up" data-aos-duration="1000">
+                            <div class="heading-text">
+                                <span class="gold">WHY PEOPLE L<i class="fa fa-heart-o"></i>VE US?</span>
+                            </div>
+                            <p class="white oR" style="font-size: 16px;">See what our clients says about MCX Sure gain and JARVIS trading system.<br>More than 99% clients are fully satisfied with our services.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 sectionP60" style="padding-bottom: 0">
+                        <div id="testimonial">
+                            <div class="item col-md-12">
+                                <div class="testimonial">
+                                    <div class="testi-text">
+                                        <p class="white rL" >MCX Sure gain gives my great opertunity to earn profits in regular manner.Now i am a succesful trader.</p>
+                                        <span class="gold-gradient-color rM">Ankit Goyal</span>
+                                        <small class="light2 or">Investor</small>
+                                    </div>
+                                    <div class="testi-p-image">
+                                        <div class="arrow-image"><img src="{% static 'images/bottom-pic.png' %}"></div>
+                                        <div class="person-image"><div><img class="img-responsive" src="{% static 'images/test1.png' %}"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item col-md-12">
+                                <div class="testimonial">
+                                    <div class="testi-text">
+                                        <p class="white rL" >I used to give tips to many of the traders and JARVIS is my best buddy to make them happy.</p>
+                                        <span class="gold-gradient-color rM">Rohan Singh</span>
+                                        <small class="light2 or">Analyst</small>
+                                    </div>
+                                    <div class="testi-p-image">
+                                        <div class="arrow-image"><img src="{% static 'images/bottom-pic.png' %}"></div>
+                                        <div class="person-image"><div><img class="img-responsive" src="{% static 'images/test2.jpg' %}"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item col-md-12">
+                                <div class="testimonial">
+                                    <div class="testi-text">
+                                        <p class="white rL" >MCX Sure gain for gives me the JARVIS Trading system which makes me happy and tension free during trading hours.</p>
+                                        <span class="gold-gradient-color rM">Mustafa Mohd.</span>
+                                        <small class="light2 or">Trader</small>
+                                    </div>
+                                    <div class="testi-p-image">
+                                        <div class="arrow-image"><img src="{% static 'images/bottom-pic.png' %}"></div>
+                                        <div class="person-image"><div><img class="img-responsive" src="{% static 'images/test3.jpg' %}"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonials -->
+
+<!-- Pricing Table -->
+<section id="pricing-table" class="sectionP60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+                    <div>
+                        <div class="heading-text">
+                            <span class="gold-gradient-color">Pricing Table.</span>
+                        </div>
+                        <p class="light oR" style="font-size: 16px;">Check out our price list which is very nominal and pocket friendly for all type of traders.</p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 sectionP60">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <div class='package'>
+                              <div class='name'>Basic</div>
+                              <div class='price'>699 INR</div>
+                              <div class='trial'>30 Days</div>
+                              <div class="lineDiv"></div>
+                              <ul>
+                                  <li>
+                                      <strong>All MCX</strong>
+                                      Covered
+                                  </li>
+                                  <li>
+                                      <strong>Web based</strong>
+                                      Access
+                                  </li>
+                                  <li>
+                                      <strong>Choose </strong>
+                                      Any Symbol
+                                  </li>
+                                  <li>
+                                      10:00 Am x 7:00 Pm support
+                                  </li>
+                                  
+                              </ul>
+                              <button class="btn btn-gradient outline">Buy Now</button>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class='package brilliant'>
+                                <div class='name'>Standard</div>
+                                <div class='price'>2000 INR</div>
+                                <div class='trial'>30 Days</div>
+                                <div class="lineDiv"></div>
+                                <ul>
+                                    <li>
+                                      <strong>All Markets</strong>
+                                      Covered
+                                  </li>
+                                  <li>
+                                      <strong>PC based</strong>
+                                      Software
+                                  </li>
+                                  <li>
+                                      <strong>MT4 </strong>
+                                      Platform
+                                  </li>
+                                  <li>
+                                      10:00 Am x 7:00 Pm support
+                                  </li>
+                                </ul>
+                                <button class="btn btn-white-outline">Buy Now</button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <div class='package'>
+                              <div class='name'>Premium</div>
+                              <div class='price'>18000</div>
+                              <div class='trial'>365 Days</div>
+                              <div class="lineDiv"></div>
+                              <ul>
+                                   <li>
+                                      <strong>All Markets</strong>
+                                      Covered
+                                  </li>
+                                  <li>
+                                      <strong>PC based</strong>
+                                      Software
+                                  </li>
+                                  <li>
+                                      <strong>MT4 </strong>
+                                      Platform
+                                  </li>
+                                  <li>
+                                      10:00 Am x 7:00 Pm support
+                                  </li>
+                                </ul>
+                              </ul>
+                              <button class="btn btn-gradient outline">Buy Now</button>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pricing Table -->
+
+<!-- Google Map -->
+<section>
+    <div id="map-section" class="section">
+        <div class="google-map" id="location" data-lat="28.3455087" data-lng="77.3294143" data-zoom="17" style="height: 330px"></div>
+    </div>
+</section>
+<!-- Google Map -->
+
+<!-- Wanna Buy Theme -->
+<section class="gold-gradient-bg sectionP40">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-sm-7 col-xs-12 res-txt-center">
+                    <h2 class="white rL m0" style="margin-top: 6px;">Wanna buy JARVIS subscription?</h2>
+                </div>
+                <div class="col-md-6 col-sm-5 col-xs-12 res-txt-center">
+                    <button class="btn btn-white-outline pull-right res-float-none" style="margin: 0">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Wanna Buy Theme -->
+
+<!-- Footer Section -->
+<footer id="contact-section" class="sectionP60 dark-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-7 col-sm-7 col-xs-12 pull-right resCont">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="heading-text">
+                            <span class="gold-gradient-color">Get in touch.</span>
+                        </div>
+                    </div>
+                    <form action="">
+                        <div class="col-md-12 col-sm-12 col-xs-12 p0">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-box">
+                                    <input placeholder="Full Name" type="text" required>
+                                    <span style="position: absolute"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-box">
+                                    <input placeholder="Email Address" type="text" required>
+                                    <span style="position: absolute"><i class="fa fa-envelope-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 p0">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-box">
+                                    <input placeholder="Mobile or Telephone" type="text" required>
+                                    <span style="position: absolute"><i class="fa fa-phone"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-box">
+                                    <input placeholder="Subject" type="text" required>
+                                    <span style="position: absolute"><i class="fa fa-puzzle-piece"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 p0">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="input-box">
+                                    <textarea placeholder="Type your message here..." name="" id="" cols="30" rows="5"></textarea>
+                                    <span style="position: absolute"><i class="fa fa-comments"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-gradient outline-button pull-right mtb20"><div style="background: #0C1222;transition: all 0.3s">Send <tag class="hidden-xs">Message</tag></div></button>
+                    </form>
+                </div>
+                <div class="col-md-4 col-sm-5 col-xs-12 border-right resCompany">
+                    <div class="company-desc logoo">
+                        <a href="#home-section"><img class="img-responsive" src="{% static 'images/logo1.png' %}"/></a>
+                        <p class="light2 rl">Feel free to contact us anytime. If you have any doubt of query you can call us on the given numbers or you can fill the form given on the right side.</p>
+                    </div>
+                    <div class="meet-us">
+                        <p class="gold rL">MEET US</p>
+                        <span class="light2 oR">Shop No -36, Ram Dairy Market, Near 777 restaurant, Sector-3, Faridabad, Haryana, Pincode - 121004.</span>
+                    </div>
+                    <div class="cont-us">
+                        <p class="gold rL">Contact Us</p>
+                        <div><a class="light2 g" href="javascript:;"><span class="oR">Landline : +0129 - 230 - 5000</span></a></div>
+                        <div><a class="light2 g" href="javascript:;"><span class="oR">Mobile : +91 955-545-5557</span></a></div>
+                        <div><a class="light2 g" href="javascript:;"><span class="oR">Email : info@JARVIScharts.com</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section -->
+
+<!-- Copyright Section -->
+<section class="sectionP20" style="background: #0b101d;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12">
+                    <p class="light oR m0" style="opacity: .65">&copy; Copyright 2017, all rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Copyright Section -->
+
+<!-- Scroll Back Top Button -->
+<button onclick="topFunction()" id="myBtn" class="btn btn-gradient"><i class="visible-xs fa fa-arrow-up"></i><tag class="hidden-xs">Back To Top</tag></button>
+<!-- Scroll Back Top Button -->
+
+
+<!-- Popups Are Here -->
+<popups>
+
+    <!-- Register Popup -->
+    <div id="pop-register" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-aos="zoom-in-up" data-aos-duration="800">&times;</button>
+                    <h3 class="modal-title  blue oR m0">REGISTER</h3>
+                    <span class="light oR" style="font-size: 14px">Enter your informations to register.</span>
+                </div>
+                <form  id="register-form">
+                    {% csrf_token %}
+                    <input placeholder="" type="hidden" name="form-type" value="register-form" required>
+                    <div class="modal-body">
+                        <div class="input-box">
+                            <input placeholder="Full Name" type="text" name="full-name" required>
+                            <span style="position: absolute"><i class="fa fa-user"></i></span>
+                        </div>
+                        <div class="input-box">
+                            <input placeholder="Email Address" name="email" type="email" required>
+                            <span style="position: absolute"><i class="fa fa-envelope-o"></i></span>
+                        </div>
+                        <div class="input-box">
+                            <input placeholder="Phone" type="text" name="phone" id="phone-number" required>
+                            <span style="position: absolute"><i class="fa fa-mobile-phone"></i></span>
+                        </div>
+                        <div class="input-box">
+                            <input placeholder="Login Key" id="password" name="password" type="password" required>
+                            <span style="position: absolute"><i class="fa fa-key"></i></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="errornote" id="error-register" style="font-size: 15px;"></span>
+                        </div><br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-gradient" >Register</button><!--data-dismiss="modal" (inside button) -->
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- Register Popup -->
+
+
+    <!-- Register Popup -->
+    <div id="pop-login" class="modal fade" role="dialog">
+
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-aos="zoom-in-up" data-aos-duration="800">&times;</button>
+                    <h3 class="modal-title  blue oR m0">Login</h3>
+                    <span class="light oR" style="font-size: 14px">Enter your informations to login.</span>
+                </div>
+                <form  id="login-form1">
+                    {% csrf_token %}
+                    <input placeholder="" type="hidden" name="form-type" value="login-form" required>
+                    <div class="modal-body">
+                        <div class="input-box">
+                            <input placeholder="Email Address" name="email" type="email" required>
+                            <span style="position: absolute"><i class="fa fa-envelope-o"></i></span>
+                        </div>
+                        <div class="input-box">
+                            <input placeholder="Login Key" id="password" name="password" type="password" required>
+                            <span style="position: absolute"><i class="fa fa-key"></i></span>
+                        </div>
+
+                    </div>
+                    <span class="errornote"  id="error-login1" style="font-size: 15px; margin-left: 15px"></span>
+                    <div class="modal-footer">
+                        <a data-toggle="modal" onclick="close_login()" data-target="#pop-forget" class="forgot pull-left"><small>forgot your password?</small></a>
+
+                        <button type="submit" class="btn btn-gradient" >Login</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <!-- Register Popup -->
+
+    <!-- Forgetpassword Popup -->
+    <div id="pop-forget" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-aos="zoom-in-up" data-aos-duration="800">&times;</button>
+                    <h3 class="modal-title  blue oR m0">Forget password</h3>
+                    <span class="light oR" style="font-size: 14px">Enter your Email here</span>
+                </div>
+                <form  id="forget-form">
+                    {% csrf_token %}
+                    <input placeholder="" type="hidden" name="form-type" value="forget-form" required>
+                    <div class="modal-body">
+                        <div class="input-box">
+                            <input placeholder="Email Address" name="email" type="email" required>
+                            <span style="position: absolute"><i class="fa fa-envelope-o"></i></span>
+                        </div>
+                        <div class="input-box">
+                            <span class="errornote" id="error-forget" style="font-size: 15px;"></span>
+                        </div><br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-gradient" >Send Password</button><!--data-dismiss="modal" (inside button) -->
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- Forgetpassword Popup -->
+
+
+    <!-- About Us Popup -->
+    <div id="pop-about" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-aos="zoom-in-up" data-aos-duration="800">&times;</button>
+                    <h3 class="modal-title  gold-gradient-color oR m0">About Us</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gradient" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- About Us Popup -->
+
+    <!-- Think Popup -->
+    <div id="pop-read-more1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-aos="zoom-in-up" data-aos-duration="800">&times;</button>
+                    <h3 class="modal-title  gold-gradient-color oR m0">Think</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gradient" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Think Popup -->
+
+    <!-- Create Popup -->
+    <div id="pop-read-more2" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-aos="zoom-in-up" data-aos-duration="800">&times;</button>
+                    <h3 class="modal-title  gold-gradient-color oR m0">Create</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gradient" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Create Popup -->
+
+    <!-- Sell Popup -->
+    <div id="pop-read-more3" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-aos="zoom-in-up" data-aos-duration="800">&times;</button>
+                    <h3 class="modal-title  gold-gradient-color oR m0">Sell</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gradient" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Sell Popup -->
+
+    <!-- Earn Popup -->
+    <div id="pop-read-more4" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-aos="zoom-in-up" data-aos-duration="800">&times;</button>
+                    <h3 class="modal-title  gold-gradient-color oR m0">Earn</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="light oR">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-gradient" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Earn Popup -->
+
+</popups>
+<!-- Popups Are Here -->
+
+
+
+<!-- All Javascripts -->
+
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+<!-- Nice Scroll -->
+<script type="text/javascript" src="{% static 'plugins/niceScroll/niceScroll.min.js' %}"></script>
+
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmiJjq5DIg_K9fv6RE72OY__p9jz0YTMI"></script>
+<script type="text/javascript" src="{% static 'plugins/map/map.js' %}"></script>
+
+<!-- Video Background -->
+<script type="text/javascript" src="{% static 'plugins/videoBg/jquery.vide.js' %}"></script>
+
+<!-- Owl Carousel -->
+<script type="text/javascript" src="{% static 'plugins/owl/owl.carousel.js' %}"></script>
+
+<!-- Number Counter -->
+<script type="text/javascript" src="{% static 'plugins/numScroll/numscroller-1.0.js' %}"></script>
+
+<!-- Scroll Animations aos-master js -->
+<script src="{% static 'plugins/aos-master/aos.js' %}"></script>
+
+<!-- Common -->
+<script type="text/javascript" src="{% static 'js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/my.js' %}"></script>
+
+<!-- All Javascripts -->
+</body>
+</html>
+
+<script>
+    function close_login(){
+        $('#pop-login').toggle();
+    }
+
+ window.mobileAndTabletcheck = function() {
+
+ var check = false;
+ (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+ return check;
+ };
+     if(window.mobileAndTabletcheck()){
+
+        document.getElementById('login-button').style.display = 'block';
+
+   }
+
+</script>

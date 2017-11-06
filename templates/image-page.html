@@ -1,0 +1,368 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MCX NSE CHARTS | JARVIS CHARTS</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+
+    <!--All css  are here-->
+
+    <!--Bootstrap css here-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <!--Font-Awsome css here-->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    <!--Owl-carousel css here-->
+    <link rel="stylesheet" href="{% static 'plugins/owl/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/owl/owl.transitions.css' %}">
+
+    <!--Custon css here-->
+    <link rel="stylesheet" href="{% static '' %}css/custom.css">
+
+    <!--Scroll Animation - aos-master css here-->
+    <link rel="stylesheet" href="{% static 'plugins/aos-master/aos.css' %}"/>
+
+    <!--Responsive css here-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+</head>
+<body>
+<div class="se-pre-con"></div>
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header logoo">
+            <button id="tog-btn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#home-section"><img class="img-responsive" src="{% static 'images/logo1.png' %}"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
+                <li class="gold"><a href="{% url 'logout' %}" >
+                    <button class="  btn btn-gradient outline-button" style="margin-bottom: 0px;" ><div style="background: #1C589B;transition: all 0.3s;">Logout </div></button>
+                </a></li>
+                <li class="gold"><a>
+                    <button class="  btn btn-gradient outline-button" style="margin-bottom: 0px;" ><div style="background: #1C589B;transition: all 0.3s;">{{ username }} </div></button>
+                </a></li>
+            </ul>
+            <ul id="navigation" class="nav navbar-nav navbar-right">
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right visible-xs visible-sm">
+                <li class="gold" style="border-top: 1px solid rgba(255,255,255,0.1)"><a href="{% url 'logout' %}">Logout</a></li>
+                <li class="gold" style="border-top: 1px solid rgba(255,255,255,0.1)"><a>{{ username }}</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!-- NAVIGATION -->
+
+
+<!-- HEADER -->
+<section id="home-section">
+    <div style="width: 100%; height: 100%;" >
+
+        <div class="gradient50 sectionP60 header-pad">
+            <div class="container">
+                <div class="row" id="listing">
+                     {% if token %}
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <form method="post" id="image-form">
+                                {% csrf_token %}
+                                <input type="hidden" value="push" name="type">
+                                <div class="col-md-4 col-md-offset-1 col-sm-6 col-xs-12 header-text sectionP60"style="padding-bottom: 10px !important;">
+                                    <div class="input-box">
+                                        <!--<input placeholder="Exchange" name="exchange" type="text" required>   -->
+                                        <select id="type" name="exchange">
+                                            <option value="nothing">Exchange</option>
+                                            <option value="NSE">NSE</option>
+                                            <option value="NSE-FO">NSE-FO</option>
+                                            <option value="MCX">MCX</option>
+                                            <option value="NCDEX">NCDEX</option>
+                                            <option value="CURRENCY">CURRENCY</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-6 col-xs-12 header-text sectionP60" style="padding-bottom: 10px !important;">
+                                    <div class="input-box">
+                                        <!--<input placeholder="Symbol" name="symbol" type="text" required> -->
+                                           <select id="size" name="symbol">
+                                               <option value="">Symbol</option>
+                                           </select>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 header-text sectionP60" style="padding-bottom: 10px !important;">
+                                    <div class="input-box">
+                                        <button type="submit" class="btn btn-gradient" >Show Results</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                          <div class="row">
+                            <div class="col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-12 p0 sectionP40">
+
+                                {% for image in images %}
+                                    <div class="col-md-6 col-sm-12 col-xs-12" id="{{ forloop.counter }}image" >
+                                        <div data-aos="fade-up" data-aos-duration="1000">
+                                            <a id="close" onclick="closeImg('{{ forloop.counter }}')"></a>
+                                            <img class="img-responsive centered" id="{{ forloop.counter }}"  src="{% static '' %}{{ image }}"/>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                     {% endif %}
+
+                     {% if not token %}
+                           <div class="col-md-12 col-sm-12 col-xs-12">
+                               <div class="row">
+                                   <div class="col-md-5 col-sm-5 col-xs-12 header-text sectionP60">
+                                       <h1 class="rL white">OOPS!</h1>
+                                       <h3 class="gold-gradient-color">Subscription period ended.</h3>
+                                       <p class="rL white">Buy our subscriptions Keeping our promises to create more opportunities for everyone, MCX Sure Gain has designed an Intelligent Trading System for Indian market, called JARVIS!</p>
+                                       <button class="animated bounce btn btn-gradient">Buy Now</button>
+                                   </div>
+                               </div>
+                           </div>
+
+                     {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- HEADER -->
+
+
+
+<!-- Footer Section -->
+<footer id="contact-section" class="sectionP60 dark-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-7 col-sm-7 col-xs-12 pull-right resCont">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="heading-text">
+                            <span class="gold-gradient-color">Get in touch.</span>
+                        </div>
+                    </div>
+                    <form action="">
+                        <div class="col-md-12 col-sm-12 col-xs-12 p0">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-box">
+                                    <input placeholder="Full Name" type="text" required>
+                                    <span style="position: absolute"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-box">
+                                    <input placeholder="Email Address" type="text" required>
+                                    <span style="position: absolute"><i class="fa fa-envelope-o"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 p0">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-box">
+                                    <input placeholder="Mobile or Telephone" type="text" required>
+                                    <span style="position: absolute"><i class="fa fa-phone"></i></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="input-box">
+                                    <input placeholder="Subject" type="text" required>
+                                    <span style="position: absolute"><i class="fa fa-puzzle-piece"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 p0">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="input-box">
+                                    <textarea placeholder="Type your message here..." name="" id="" cols="30" rows="5"></textarea>
+                                    <span style="position: absolute"><i class="fa fa-comments"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-gradient outline-button pull-right mtb20"><div style="background: #0C1222;transition: all 0.3s">Send <tag class="hidden-xs">Message</tag></div></button>
+                    </form>
+                </div>
+                <div class="col-md-4 col-sm-5 col-xs-12 border-right resCompany">
+                    <div class="company-desc logoo">
+                        <a href="#home-section"><img class="img-responsive" src="{% static 'images/logo1.png' %}"/></a>
+                        <p class="light2 rl">Feel free to contact us anytime. If you have any doubt of query you can call us on the given numbers or you can fill the form given on the right side.</p>
+                    </div>
+                    <div class="meet-us">
+                        <p class="gold rL">MEET US</p>
+                        <span class="light2 oR">Shop No -36, Ram Dairy Market, Near 777 restaurant, Sector-3, Faridabad, Haryana, Pincode - 121004.</span>
+                    </div>
+                    <div class="cont-us">
+                        <p class="gold rL">Contact Us</p>
+                        <div><a class="light2 g" href="javascript:;"><span class="oR">Landline : +0129 - 230 - 5000</span></a></div>
+                        <div><a class="light2 g" href="javascript:;"><span class="oR">Mobile : +91 955-545-5557</span></a></div>
+                        <div><a class="light2 g" href="javascript:;"><span class="oR">Email : info@JARVIScharts.com</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section -->
+
+<!-- Copyright Section -->
+<section class="sectionP20" style="background: #0b101d;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12">
+                    <p class="light oR m0" style="opacity: .65">&copy; Copyright 2017, all rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Copyright Section -->
+
+
+
+<!-- All Javascripts -->
+
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    var images = {{ images|safe }};
+    var hidden = [-1111];
+
+    function closeImg(id,exchange,symbol) {
+        console.log(id)
+        document.getElementById(id+'image').style.display = 'none';
+        //delete images[id-1]; // cover the boundry case as if the length is one it donot delete the element
+        //images=images.filter(function(a){return typeof a !== 'undefined';});
+        hidden.push(parseInt(id));
+        //console.log(exchange,symbol)
+
+        $.ajax({
+            url: "",
+            method: "POST",
+            data:
+            {
+                exchange: exchange,
+                symbol: symbol,
+                type: 'pop'
+            },
+            headers: {'X-CSRFToken': '{{ csrf_token }}'},
+                datatype: "json"
+        });
+    }
+
+
+    var update_images = function() {
+        console.log('reloading...');
+        for (var i=0;i<images.length;i++){
+            if (hidden.indexOf(parseInt(i))==-1){
+                //console.log('aaa')
+                document.getElementById(i).src = "{% static '' %}"+images[i]+"?version="+new Date().getTime();
+            }
+        }
+    }
+
+
+    var interval = 1000 * 60 * 0.026; // where X is your every X minutes
+    var status = setInterval(update_images, interval);
+
+
+     $('#image-form').submit(function(){
+
+    var formData = new FormData($(this)[0]);
+
+    $.ajax({
+        url: '',
+        type: 'POST',
+        data: formData,
+        async: false,
+        success: function (data) {
+            if (data.message=="exists"){
+                alert('Already showing current category.')
+            }
+            else if (data.message=="nothing"){
+
+            }
+            else{
+                exchange = $('#type').val();
+                symbol = $('#size').val();
+                id = images.length+'image';
+                $('#listing').append("<div class=\"col-md-6 margin-bottom col-sm-12 col-xs-12\" id='"+id+"' >\n" +
+                    "                                        <div data-aos=\"fade-up\" data-aos-duration=\"1000\">\n" +
+                    "                                            <a id=\"close\" onclick=\"closeImg('"+images.length+"','"+exchange+"','"+symbol+"')\"></a>\n" +
+                    "                                            <img class=\"img-responsive centered\" id='"+images.length+"'\"  src='static/"+data.message+"'/>\n" +
+                    "                                        </div>\n" +
+                    "                                    </div>")
+                images.push(data.message);
+            }
+
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+
+    return false;
+});
+
+</script>
+
+<!-- Bootstrap -->
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+
+<!-- Nice Scroll -->
+<script type="text/javascript" src="{% static 'plugins/niceScroll/niceScroll.min.js' %}"></script>
+
+<!-- Google Map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmiJjq5DIg_K9fv6RE72OY__p9jz0YTMI"></script>
+<script type="text/javascript" src="{% static 'plugins/map/map.js' %}"></script>
+
+<!-- Video Background -->
+<script type="text/javascript" src="{% static 'plugins/videoBg/jquery.vide.js' %}"></script>
+
+<!-- Owl Carousel -->
+<script type="text/javascript" src="{% static 'plugins/owl/owl.carousel.js' %}"></script>
+
+<!-- Number Counter -->
+<script type="text/javascript" src="{% static 'plugins/numScroll/numscroller-1.0.js' %}"></script>
+
+<!-- Scroll Animations aos-master js -->
+<script src="{% static 'plugins/aos-master/aos.js' %}"></script>
+
+<!-- Common -->
+<script type="text/javascript" src="{% static 'js/common.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/my.js' %}"></script>
+<!-- All Javascripts -->
+</body>
+</html>
