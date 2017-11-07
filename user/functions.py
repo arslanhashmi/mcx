@@ -5,6 +5,7 @@ from datetime import date
 
 
 
+
 #datetimeFormat = '%Y-%m-%d %H:%M:%S'
 #current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 #print(datetime.strptime(current_time, datetimeFormat) - datetime.strptime(v.creation_time,datetimeFormat))
